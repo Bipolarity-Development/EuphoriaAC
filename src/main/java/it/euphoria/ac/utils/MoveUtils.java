@@ -62,4 +62,29 @@ public class MoveUtils {
         }
         return false;
     }
+
+    public static boolean isOnClimbable(Player player) {
+        for (Block block : BlockUtils.getSurrounding(player.getLocation().getBlock(), false)) {
+            if (block.getType() != Material.LADDER && block.getType() != Material.VINE) continue;
+            return true;
+        }
+        return player.getLocation().getBlock().getType() == Material.LADDER || player.getLocation().getBlock().getType() == Material.VINE;
+    }
+
+    public static boolean isOnGround(Player player) {
+        if (player.getLocation().getBlock().getRelative(BlockFace.DOWN).getType() != Material.AIR) {
+            return true;
+        }
+        Location a = player.getLocation().clone();
+        a.setY(a.getY() - 0.5);
+        if (a.getBlock().getType() != Material.AIR) {
+            return true;
+        }
+        a = player.getLocation().clone();
+        a.setY(a.getY() + 0.5);
+        if (a.getBlock().getRelative(BlockFace.DOWN).getType() != Material.AIR) {
+            return true;
+        }
+        return isBlock(player.getLocation().getBlock().getRelative(BlockFace.DOWN), new Material[]{XMaterial.OAK_FENCE.parseMaterial(), XMaterial.OAK_FENCE_GATE.parseMaterial(), XMaterial.COBBLESTONE_WALL.parseMaterial(), Material.LADDER});
+    }
 }
