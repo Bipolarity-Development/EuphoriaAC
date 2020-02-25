@@ -1,5 +1,6 @@
 package it.euphoria.ac;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class EuphoriaAC extends JavaPlugin {
@@ -7,6 +8,7 @@ public final class EuphoriaAC extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        Bukkit.getConsoleSender().sendMessage("§2§lEuphoriaAC now has been online!");
 
     }
 
