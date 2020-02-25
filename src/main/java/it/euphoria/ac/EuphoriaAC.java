@@ -8,12 +8,13 @@ public final class EuphoriaAC extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        Bukkit.getConsoleSender().sendMessage("§2§lEuphoriaAC now has been online!");
+        Bukkit.getConsoleSender().sendMessage("§2§lEuphoriaAC has been enabled!");
 
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        Bukkit.getConsoleSender().sendMessage("§c§lEuphoriaAC has been disabled");
     }
 }
