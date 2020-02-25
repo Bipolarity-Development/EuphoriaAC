@@ -1,0 +1,6 @@
+name: EuphoriaAC
+version: ${project.version}
+main: it.euphoria.ac.EuphoriaAC
+api-version: 1.13
+authors: [Untitlxd_, Mr_L4ST]
+description: The best minecraft AntiCheat
