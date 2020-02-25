@@ -1,6 +1,7 @@
 package it.euphoria.ac;
 
 import it.euphoria.ac.checks.CheckManager;
+import it.euphoria.ac.checks.movement.Fly;
 import it.euphoria.ac.data.EuphoricPlayer;
 import it.euphoria.ac.listener.JoinEvent;
 import it.euphoria.ac.listener.MoveEvent;
@@ -26,6 +27,7 @@ public final class EuphoriaAC extends JavaPlugin {
         logger = new Logger(this);
         registerEvents();
         checkManager = new CheckManager(this);
+        CheckManager.registerCheck(new Fly());
         Objects.requireNonNull(getCommand("euphoria")).setExecutor(new EuphoriaAC());
         Bukkit.getConsoleSender().sendMessage("§2§lEuphoriaAC has been enabled!");
     }
