@@ -18,7 +18,7 @@ public class MainCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if (args.length == 0 ) {
+            if (args.length == 0) {
                 if (player.hasPermission("euphoria.admin")) {
                     player.sendMessage("§b§m--------------------");
                     player.sendMessage("");
@@ -29,13 +29,12 @@ public class MainCommand implements CommandExecutor {
                 }
             } else {
                 if (args.length == 1) {
-                    if (args[0].equalsIgnoreCase("info")){
+                    if (args[0].equalsIgnoreCase("info")) {
                         player.sendMessage("§b§m--------------------");
                         player.sendMessage("");
                         player.sendMessage("§cUntitlxd_ §b§l& §cMr_L4ST");
                         player.sendMessage("");
                         player.sendMessage("§b§m--------------------");
-
                     }
                 }
             }
