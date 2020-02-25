@@ -16,12 +16,12 @@ import org.bukkit.entity.Player;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class Fly extends Check {
+public class FlyA extends Check {
 
     private HashMap<UUID, Long> flyTicks = new HashMap<>();
 
-    public Fly() {
-        super("Fly");
+    public FlyA() {
+        super("FlyA");
     }
 
     @Override
@@ -66,6 +66,7 @@ public class Fly extends Check {
         if (System.currentTimeMillis() - time > 500) {
             flyTicks.remove(player.getUniqueId());
             ep.flag(this);
+            ep.kick(this, "§bPlease remove your Fly!");
             return;
         }
 

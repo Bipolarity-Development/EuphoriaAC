@@ -11,8 +11,8 @@ public class MoveEvent implements Listener {
 
     @EventHandler
     public void onMove(PlayerMoveEvent e) {
-        for (Check c : EuphoriaAC.getCheckManager().getChecks()) {
-            EuphoricPlayer fp = EuphoriaAC.getPlugin().get(e.getPlayer());
+        for (Check c : EuphoriaAC.getInstance().getCheckManager().getChecks()) {
+            EuphoricPlayer fp = EuphoriaAC.getInstance().get(e.getPlayer());
             c.onMove(fp, e.getFrom(), e.getTo());
         }
     }

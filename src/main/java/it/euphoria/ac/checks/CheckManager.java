@@ -4,7 +4,6 @@ import it.euphoria.ac.EuphoriaAC;
 import it.euphoria.ac.data.EuphoricPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Vector;
@@ -12,10 +11,8 @@ import java.util.Vector;
 public class CheckManager {
 
     private static Vector<Check> checks = new Vector<>();
-    private static Plugin pl;
 
-    public CheckManager(Plugin p) {
-        pl = p;
+    public CheckManager() {
         new BukkitRunnable() {
 
             @Override
@@ -23,19 +20,19 @@ public class CheckManager {
 
                 for (Check c : checks) {
                     for (Player p : Bukkit.getOnlinePlayers()) {
-                        EuphoricPlayer fp = EuphoriaAC.getPlugin().get(p);
+                        EuphoricPlayer fp = EuphoriaAC.getInstance().get(p);
                         c.onUpdate(fp);
                     }
                 }
             }
-        }.runTaskTimerAsynchronously(p, 1, 1);
+        }.runTaskTimerAsynchronously(EuphoriaAC.getInstance(), 1, 1);
     }
 
     public static void registerCheck(Check c) {
         if (!checks.contains(c)) {
             checks.add(c);
-            pl.getServer().getPluginManager().registerEvents(c, pl);
-            EuphoriaAC.getPlugin().getACLogger().log(c.getName() + " successfully registered!");
+            EuphoriaAC.getInstance().getServer().getPluginManager().registerEvents(c, EuphoriaAC.getInstance());
+            EuphoriaAC.getInstance().getACLogger().log(c.getName() + " successfully registered!");
         }
     }
 

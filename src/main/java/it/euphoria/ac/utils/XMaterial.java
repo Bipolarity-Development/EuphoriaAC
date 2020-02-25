@@ -1,25 +1,3 @@
-/*
- * The MIT License (MIT)
- *
- * Copyright (c) 2018 Hex_27
- * Copyright (c) 2020 Crypto Morin
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
- * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
- * PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
- * FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
- * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 package it.euphoria.ac.utils;
 
 import com.google.common.base.Enums;
@@ -41,27 +19,6 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
-/**
- * <b>XMaterial</b> - Data Values/Pre-flattening<br>
- * Supports 1.8-1.15<br>
- * 1.13 and above as priority.
- * <p>
- * This class is mainly designed to support ItemStacks.
- * If you want to use it on blocks you'll have to
- * use <a href="https://github.com/CryptoMorin/XSeries/blob/master/XBlock.java">XBlock</a>
- * <p>
- * Pre-flattening: https://minecraft.gamepedia.com/Java_Edition_data_values/Pre-flattening
- * Materials: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
- * Materials (1.12): https://helpch.at/docs/1.12.2/index.html?org/bukkit/Material.html
- * Material IDs: https://minecraft-ids.grahamedgecombe.com/
- * Material Source Code: https://hub.spigotmc.org/stash/projects/SPIGOT/repos/bukkit/browse/src/main/java/org/bukkit/Material.java
- * XMaterial v1: https://www.spigotmc.org/threads/329630/
- *
- * @author Crypto Morin
- * @version 4.0.0
- * @see Material
- * @see ItemStack
- */
 public enum XMaterial {
     ACACIA_BOAT("BOAT_ACACIA"),
     ACACIA_BUTTON("WOOD_BUTTON"),

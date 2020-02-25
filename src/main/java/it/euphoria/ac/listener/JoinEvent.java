@@ -17,6 +17,6 @@ public class JoinEvent implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e){
-        EuphoriaAC.getPlugin().playerList.add(new EuphoricPlayer(e.getPlayer()));
+        EuphoriaAC.getInstance().playerList.add(new EuphoricPlayer(e.getPlayer()));
     }
 }

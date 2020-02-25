@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="EuphoriaAC:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/EuphoriaAC_jar</output-path>
+    <root id="archive" name="EuphoriaAC.jar">
+      <element id="module-output" name="EuphoriaAC" />
+    </root>
+  </artifact>
+</component>

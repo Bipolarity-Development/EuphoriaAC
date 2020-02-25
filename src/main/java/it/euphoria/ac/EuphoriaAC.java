@@ -1,7 +1,7 @@
 package it.euphoria.ac;
 
 import it.euphoria.ac.checks.CheckManager;
-import it.euphoria.ac.checks.movement.Fly;
+import it.euphoria.ac.checks.movement.FlyA;
 import it.euphoria.ac.data.EuphoricPlayer;
 import it.euphoria.ac.listener.JoinEvent;
 import it.euphoria.ac.listener.MoveEvent;
@@ -10,12 +10,11 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Objects;
 import java.util.Vector;
 
 public final class EuphoriaAC extends JavaPlugin {
 
-    private static EuphoriaAC plugin;
+    private static EuphoriaAC instance;
     public Vector<EuphoricPlayer> playerList = new Vector<>();
     private static CheckManager checkManager;
     private static Logger logger;
@@ -23,12 +22,12 @@ public final class EuphoriaAC extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        plugin = this;
-        logger = new Logger(this);
+        instance = this;
+        logger = new Logger();
         registerEvents();
-        checkManager = new CheckManager(this);
-        CheckManager.registerCheck(new Fly());
-        Objects.requireNonNull(getCommand("euphoria")).setExecutor(new EuphoriaAC());
+        checkManager = new CheckManager();
+        //Objects.requireNonNull(this.getCommand("euphoria")).setExecutor(new EuphoriaAC());
+        CheckManager.registerCheck(new FlyA());
         Bukkit.getConsoleSender().sendMessage("§2§lEuphoriaAC has been enabled!");
     }
 
@@ -38,20 +37,16 @@ public final class EuphoriaAC extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage("§c§lEuphoriaAC has been disabled!");
     }
 
-    public static EuphoriaAC getPlugin() {
-        return plugin;
+    private void registerEvents() {
+        Bukkit.getPluginManager().registerEvents(new JoinEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new MoveEvent(), this);
     }
 
-    private static void registerEvents() {
-        Bukkit.getPluginManager().registerEvents(new JoinEvent(), plugin);
-        Bukkit.getPluginManager().registerEvents(new MoveEvent(), plugin);
-//        Bukkit.getPluginManager().registerEvents(new InteractEvent(), this);
-//        Bukkit.getPluginManager().registerEvents(new QuitEvent(), this);
-//        Bukkit.getPluginManager().registerEvents(new DamageEvent(), this);
-//        Bukkit.getPluginManager().registerEvents(new TeleportEvent(), this);
+    public static EuphoriaAC getInstance() {
+        return instance;
     }
 
-    public static CheckManager getCheckManager() {
+    public CheckManager getCheckManager() {
         return checkManager;
     }
 
