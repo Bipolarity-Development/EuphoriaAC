@@ -66,6 +66,7 @@ public class FlyA extends Check {
         if (System.currentTimeMillis() - time > 500) {
             flyTicks.remove(player.getUniqueId());
             ep.flag(this);
+            player.teleport(from);
             ep.kick(this, "§bPlease remove your Fly!");
             return;
         }
